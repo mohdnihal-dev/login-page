@@ -1,0 +1,293 @@
+:root {
+    --primary: #6366f1;
+    --primary-glow: rgba(99, 102, 241, 0.4);
+    --secondary: #a855f7;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --card-bg: rgba(17, 25, 40, 0.75);
+    --card-border: rgba(255, 255, 255, 0.125);
+    --input-bg: rgba(30, 41, 59, 0.7);
+    --radius: 20px;
+    --error: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    /* Cyber-Glass Dark Gradient */
+    background: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+        radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+    background-color: #0f172a;
+    background-size: 200% 200%;
+    animation: gradientMove 15s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+}
+
+.card {
+    /* Enhanced Dark Glassmorphism */
+    background: var(--card-bg);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-radius: var(--radius);
+    padding: 40px 30px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle Glow behind card */
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 6px;
+    border-radius: 14px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.tab-btn:hover:not(.active) {
+    color: #cbd5e1;
+}
+
+/* Forms */
+.form-content {
+    position: relative;
+    z-index: 1;
+}
+
+form {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+form.active-form {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h2 {
+    font-size: 2rem;
+    background: linear-gradient(to right, #fff, #94a3b8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.form-header p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Inputs */
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #cbd5e1;
+    margin-left: 4px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 16px;
+    color: #64748b;
+    font-size: 1.2rem;
+    transition: 0.3s;
+    pointer-events: none;
+}
+
+input {
+    width: 100%;
+    padding: 16px 16px 16px 48px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--input-bg);
+    border-radius: 14px;
+    font-size: 1rem;
+    color: white;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input::placeholder {
+    color: #475569;
+}
+
+input:focus {
+    background: rgba(30, 41, 59, 0.9);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px var(--primary-glow);
+    outline: none;
+}
+
+input:focus+i {
+    color: var(--primary);
+}
+
+/* Buttons */
+.submit-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    box-shadow: 0 4px 6px -1px rgba(99, 102, 241, 0.3);
+    transition: all 0.3s ease;
+    margin-top: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.6);
+}
+
+.submit-btn:hover::before {
+    left: 100%;
+}
+
+.submit-btn.secondary {
+    background: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 100%);
+    box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.3);
+}
+
+.submit-btn.secondary:hover {
+    box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.6);
+}
+
+.error-message {
+    color: #f87171;
+    font-size: 0.8rem;
+    margin-top: 6px;
+    margin-left: 4px;
+    display: block;
+    min-height: 18px;
+}
+
+.input-group.error input {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .card {
+        padding: 30px 20px;
+    }
+
+    .form-header h2 {
+        font-size: 1.75rem;
+    }
+}
