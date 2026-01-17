@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Back</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="brand-header">
+            <!-- Optional: Add Logo Here -->
+        </div>
+        <div class="card">
+            <div class="tabs">
+                <button class="tab-btn active" data-target="login-form">Login</button>
+                <button class="tab-btn" data-target="signup-form">Sign Up</button>
+                <div class="tab-indicator"></div>
+            </div>
+
+            <div class="form-content">
+                <!-- LOGIN FORM -->
+                <form id="login-form" class="active-form" action="process.php" method="POST" autocomplete="off">
+                    <input type="hidden" name="action" value="login">
+                    <div class="form-header">
+                        <h2>Welcome Back</h2>
+                        <p>Enter your details with to access your account.</p>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="l_email">Email</label>
+                        <div class="input-wrapper">
+                            <i class="ph ph-envelope-simple"></i>
+                            <input type="email" id="l_email" name="email" placeholder="nihal@example.com" required>
+                        </div>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="l_password">Password</label>
+                        <div class="input-wrapper">
+                            <i class="ph ph-lock-key"></i>
+                            <input type="password" id="l_password" name="password" placeholder="••••••••" required>
+                        </div>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <button type="submit" class="submit-btn primary">
+                        Log In <i class="ph ph-sign-in"></i>
+                    </button>
+                </form>
+
+                <!-- SIGNUP FORM -->
+                <form id="signup-form" action="process.php" method="POST" autocomplete="off">
+                    <input type="hidden" name="action" value="signup">
+                    <div class="form-header">
+                        <h2>Create Account</h2>
+                        <p>Join us today for free.</p>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="s_email">Email</label>
+                        <div class="input-wrapper">
+                            <i class="ph ph-envelope-simple"></i>
+                            <input type="email" id="s_email" name="email" placeholder="nihal@example.com" required>
+                        </div>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="s_password">Password</label>
+                        <div class="input-wrapper">
+                            <i class="ph ph-lock"></i>
+                            <input type="password" id="s_password" name="password" placeholder="••••••••" required>
+                        </div>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="s_phone">Phone Number</label>
+                        <div class="input-wrapper">
+                            <i class="ph ph-phone"></i>
+                            <input type="tel" id="s_phone" name="phone" placeholder="123-456-7890" required>
+                        </div>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <button type="submit" class="submit-btn secondary">
+                        Sign Up <i class="ph ph-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
